@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
+import { MainPost } from "../components/MainPost";
 
-const Home: NextPage = () => <div />;
+const Home: NextPage = () => <MainPost />;
 
 export default Home;
