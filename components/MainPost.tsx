@@ -76,19 +76,17 @@ export const MainPost = () => {
           </div>
         </form>
       </div>
-      {isLoading || createPostMutate.isLoading ? (
-        <Spin />
-      ) : (
-        <ul className="flex w-full flex-col items-center justify-center">
-          {data?.map((post) => (
-            <li key={post.id} className=" w-full ">
-              <AnimatePresence>
-                <PostItem post={post} />
-              </AnimatePresence>
-            </li>
-          ))}
-        </ul>
-      )}
+
+      <ul className="flex w-full flex-col items-center justify-center">
+        {data?.map((post) => (
+          <li key={post.id} className=" w-full ">
+            <AnimatePresence>
+              <PostItem post={post} />
+            </AnimatePresence>
+          </li>
+        ))}
+        {isLoading || (createPostMutate.isLoading && <Spin />)}
+      </ul>
     </Layout>
   );
 };
