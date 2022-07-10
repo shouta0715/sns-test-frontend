@@ -26,7 +26,7 @@ export const PostItem: FC<Props> = ({ post }) => {
         <span className="">Title:</span>
         <span className="px-2 ">{post.title}</span>
       </div>
-      <div className="px-2 text-lg md:text-2xl">{post.content}</div>
+      <div className="px-2 text-lg font-medium md:text-2xl	">{post.content}</div>
       <div className="mt-4 px-10 ">{post.body}</div>
       <button
         type="button"
