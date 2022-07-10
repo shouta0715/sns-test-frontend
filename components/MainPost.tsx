@@ -30,7 +30,7 @@ export const MainPost = () => {
         title: input.title,
         content: input.content,
         body: input.body,
-        authorId: "93057214-99aa-45ca-ab23-f385af300b88",
+        authorId: "d710df2a-9bbc-44d9-a174-231f0c788a53",
       });
       setInput({ title: "", content: "", body: "" });
     }

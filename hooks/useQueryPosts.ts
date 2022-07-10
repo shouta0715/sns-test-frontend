@@ -13,6 +13,6 @@ export const useQueryPosts = () => {
     queryKey: "posts",
     queryFn: getPost,
     staleTime: 0,
-    refetchInterval: 2000,
+    refetchInterval: 20000,
   });
 };

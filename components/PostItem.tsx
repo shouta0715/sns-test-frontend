@@ -28,11 +28,11 @@ export const PostItem: FC<Props> = ({ post }) => {
         onClick={() =>
           deletePostMutate.mutate({
             id: post.id,
-            userId: "93057214-99aa-45ca-ab23-f385af300b88",
+            userId: "d710df2a-9bbc-44d9-a174-231f0c788a53",
           })
         }
         className="absolute top-8 right-20"
-        disabled={post.authorId !== "93057214-99aa-45ca-ab23-f385af300b88"}
+        disabled={post.authorId !== "d710df2a-9bbc-44d9-a174-231f0c788a53"}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
