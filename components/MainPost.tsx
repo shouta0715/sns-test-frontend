@@ -4,6 +4,7 @@ import { useMutatePosts } from "../hooks/useMutatePosts";
 import { useQueryPosts } from "../hooks/useQueryPosts";
 import { Layout } from "./Layout";
 import { PostItem } from "./PostItem";
+import { Spin } from "./Spin";
 
 export const MainPost = () => {
   const { isLoading, isError, data } = useQueryPosts();
@@ -14,10 +15,6 @@ export const MainPost = () => {
   });
 
   const { createPostMutate } = useMutatePosts();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   if (isError) {
     return <div>Error</div>;
@@ -79,15 +76,19 @@ export const MainPost = () => {
           </div>
         </form>
       </div>
-      <ul className="flex w-full flex-col items-center justify-center">
-        {data?.map((post) => (
-          <li key={post.id} className=" w-full ">
-            <AnimatePresence>
-              <PostItem post={post} />
-            </AnimatePresence>
-          </li>
-        ))}
-      </ul>
+      {isLoading || createPostMutate.isLoading ? (
+        <Spin />
+      ) : (
+        <ul className="flex w-full flex-col items-center justify-center">
+          {data?.map((post) => (
+            <li key={post.id} className=" w-full ">
+              <AnimatePresence>
+                <PostItem post={post} />
+              </AnimatePresence>
+            </li>
+          ))}
+        </ul>
+      )}
     </Layout>
   );
 };

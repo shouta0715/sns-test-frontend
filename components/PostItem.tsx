@@ -2,11 +2,16 @@ import { motion } from "framer-motion";
 import React, { FC } from "react";
 import { useMutatePosts } from "../hooks/useMutatePosts";
 import { Post } from "../types/types";
+import { Spin } from "./Spin";
 
 type Props = { post: Post };
 
 export const PostItem: FC<Props> = ({ post }) => {
   const { deletePostMutate } = useMutatePosts();
+
+  if (deletePostMutate.isLoading || deletePostMutate.isSuccess) {
+    return <Spin />;
+  }
 
   return (
     <motion.div
