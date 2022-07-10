@@ -35,8 +35,11 @@ export const MainPost = () => {
 
   return (
     <Layout title="posts">
-      <div className=" my-4 flex w-full flex-col items-center justify-center p-4">
-        <form className="flex flex-col space-y-4" onSubmit={create}>
+      <div className=" my-4 flex w-full flex-col items-center justify-center  py-4">
+        <form
+          className="flex flex-col items-center justify-center space-y-4 "
+          onSubmit={create}
+        >
           <input
             type="text"
             placeholder="title"
@@ -53,7 +56,7 @@ export const MainPost = () => {
           />
           <input
             type="textarea"
-            className="textarea h-48 w-[400px] border-black"
+            className="textarea h-48 w-full border-black md:w-[400px]"
             placeholder="body"
             onChange={(e) => setInput({ ...input, body: e.target.value })}
             value={input.body}

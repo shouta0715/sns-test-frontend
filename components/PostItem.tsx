@@ -36,7 +36,7 @@ export const PostItem: FC<Props> = ({ post }) => {
             userId: "d710df2a-9bbc-44d9-a174-231f0c788a53",
           })
         }
-        className="absolute top-8 right-20"
+        className="absolute bottom-8 right-10 md:top-8 md:right-20"
         disabled={post.authorId !== "d710df2a-9bbc-44d9-a174-231f0c788a53"}
       >
         <svg
