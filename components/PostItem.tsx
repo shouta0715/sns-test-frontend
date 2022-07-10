@@ -22,12 +22,12 @@ export const PostItem: FC<Props> = ({ post }) => {
       transition={{ duration: 0.3 }}
       className=" relative flex w-full flex-col items-center justify-center border md:p-4 "
     >
-      <div className="m-4 font-bold md:text-3xl">
+      <div className="m-4 text-xl font-bold md:text-3xl">
         <span className="">Title:</span>
         <span className="px-2 ">{post.title}</span>
       </div>
-      <div className="px-2 md:text-2xl">{post.content}</div>
-      <div className="mt-4 px-10">{post.body}</div>
+      <div className="px-2 text-lg md:text-2xl">{post.content}</div>
+      <div className="mt-4 px-10 ">{post.body}</div>
       <button
         type="button"
         onClick={() =>
