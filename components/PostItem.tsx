@@ -20,7 +20,7 @@ export const PostItem: FC<Props> = ({ post }) => {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0, opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className=" relative flex w-full flex-col items-center justify-center border p-4 "
+      className=" relative flex w-full flex-col items-center justify-center border md:p-4 "
     >
       <div className="m-4 font-bold md:text-3xl">
         <span className="">Title:</span>
