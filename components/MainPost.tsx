@@ -82,7 +82,10 @@ export const MainPost = () => {
 
       <ul className="flex w-full flex-col items-center justify-center">
         {data?.map((post) => (
-          <li key={post.id} className=" w-full ">
+          <li
+            key={post.id}
+            className=" w-full cursor-pointer hover:bg-gray-100"
+          >
             <AnimatePresence>
               <PostItem post={post} />
             </AnimatePresence>
