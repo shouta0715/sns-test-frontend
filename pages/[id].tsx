@@ -1,13 +1,18 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { FC } from "react";
 import { Layout } from "../components/Layout";
 import { Spin } from "../components/Spin";
 import { getAllIds, getPost } from "../hooks/posts";
 import { useMutatePosts } from "../hooks/useMutatePosts";
+import { Post } from "../types/types";
 
-const detailPage = ({ post }: any) => {
+type Props = {
+  post: Post;
+};
+
+const detailPage: FC<Props> = ({ post }) => {
   const { deletePostMutate } = useMutatePosts();
 
   const router = useRouter();
