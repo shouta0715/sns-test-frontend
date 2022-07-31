@@ -2,13 +2,15 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
-import { Layout } from "../components/Layout/Layout";
-import { Spin } from "../components/Load/Spin";
+import { Layout } from "../components/Layout";
+import { Spin } from "../components/Spin";
 import { getAllIds, getPost } from "../hooks/posts";
 import { useMutatePosts } from "../hooks/useMutatePosts";
 import { Post } from "../types/types";
 
-type Props = { post: Post };
+type Props = {
+  post: Post;
+};
 
 const detailPage: FC<Props> = ({ post }) => {
   const { deletePostMutate } = useMutatePosts();
@@ -42,7 +44,7 @@ const detailPage: FC<Props> = ({ post }) => {
       <div className=" flex  flex-col items-center justify-center   p-4 ">
         <div className="m-4 text-xl font-bold md:text-3xl">
           <span className="">Title:</span>
-          <span className="px-2">{post.title}</span>
+          <span className="px-2 ">{post.title}</span>
         </div>
         <div className="px-2 text-lg font-medium md:text-2xl	">
           {post.content}
@@ -76,6 +78,7 @@ const detailPage: FC<Props> = ({ post }) => {
             </svg>
           </button>
         </div>
+
         <Link href="/">
           <div>
             <svg

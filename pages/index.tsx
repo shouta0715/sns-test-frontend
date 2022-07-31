@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { MainPost } from "../components/Post/MainPost";
+import { MainPost } from "../components/MainPost";
 
 const Home: NextPage = () => <MainPost />;
 
