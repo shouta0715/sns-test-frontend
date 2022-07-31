@@ -1,10 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import { useMutatePosts } from "../hooks/useMutatePosts";
-import { useQueryPosts } from "../hooks/useQueryPosts";
-import { Layout } from "./Layout";
+import { useMutatePosts } from "../../hooks/useMutatePosts";
+import { useQueryPosts } from "../../hooks/useQueryPosts";
+import { Layout } from "../Layout/Layout";
+import { Spin } from "../Load/Spin";
 import { PostItem } from "./PostItem";
-import { Spin } from "./Spin";
 
 export const MainPost = () => {
   const { isLoading, isError, data } = useQueryPosts();
