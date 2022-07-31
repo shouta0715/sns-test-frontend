@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ children, title }) => (
-  <div className="font-mono">
+  <div className="h-screen w-screen font-mono">
     <Head>
       <title>{title}</title>
     </Head>
