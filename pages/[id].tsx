@@ -8,9 +8,7 @@ import { getAllIds, getPost } from "../hooks/posts";
 import { useMutatePosts } from "../hooks/useMutatePosts";
 import { Post } from "../types/types";
 
-type Props = {
-  post: Post;
-};
+type Props = { post: Post };
 
 const detailPage: FC<Props> = ({ post }) => {
   const { deletePostMutate } = useMutatePosts();
