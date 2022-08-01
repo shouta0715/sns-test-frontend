@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { FC } from "react";
-import { Post } from "../types/types";
+import { Post } from "../../types/types";
 
 type Props = { post: Post };
 
