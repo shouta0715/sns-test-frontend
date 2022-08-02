@@ -1,12 +1,13 @@
 import { AnimatePresence } from "framer-motion";
-import React, { useState } from "react";
-import { useMutatePosts } from "../../hooks/useMutatePosts";
-import { useQueryPosts } from "../../hooks/useQueryPosts";
-import { Layout } from "../Layout/Layout";
-import { Spin } from "../Layout/Spin";
-import { PostItem } from "./PostItem";
+import React, { useEffect, useState } from "react";
+import { Layout } from "../components/Layout/Layout";
+import { Spin } from "../components/Layout/Spin";
+import { PostItem } from "../components/Post/PostItem";
+import { useStateContext } from "../context/StateProvider";
+import { useMutatePosts } from "../hooks/useMutatePosts";
+import { useQueryPosts } from "../hooks/useQueryPosts";
 
-export const MainPost = () => {
+const MainPost = () => {
   const { isLoading, isError, data } = useQueryPosts();
   const [input, setInput] = useState({
     title: "",
@@ -15,6 +16,10 @@ export const MainPost = () => {
   });
 
   const { createPostMutate } = useMutatePosts();
+  const { userId, setUserId } = useStateContext();
+  useEffect(() => {
+    if (userId === "") setUserId("f9607a9f-51dd-401a-b000-4b14b0867942");
+  }, []);
 
   if (isError) {
     return <div>Error</div>;
@@ -27,7 +32,7 @@ export const MainPost = () => {
         title: input.title,
         content: input.content,
         body: input.body,
-        authorId: "d710df2a-9bbc-44d9-a174-231f0c788a53",
+        authorId: userId,
       });
       setInput({ title: "", content: "", body: "" });
     }
@@ -96,3 +101,5 @@ export const MainPost = () => {
     </Layout>
   );
 };
+
+export default MainPost;

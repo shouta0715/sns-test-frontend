@@ -5,7 +5,11 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Title: ["Amatic SC", "cursive"],
+      },
+    },
   },
   // eslint-disable-next-line global-require
   plugins: [require("daisyui")],

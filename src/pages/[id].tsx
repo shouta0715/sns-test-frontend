@@ -1,9 +1,10 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Layout } from "../components/Layout/Layout";
 import { Spin } from "../components/Layout/Spin";
+import { useStateContext } from "../context/StateProvider";
 import { getAllIds, getPost } from "../hooks/posts";
 import { useMutatePosts } from "../hooks/useMutatePosts";
 import { Post } from "../types/types";
@@ -17,6 +18,12 @@ const detailPage: FC<Props> = ({ post }) => {
 
   const router = useRouter();
 
+  const { userId, setUserId } = useStateContext();
+
+  useEffect(() => {
+    if (userId === "") setUserId("f9607a9f-51dd-401a-b000-4b14b0867942");
+  }, []);
+
   if (deletePostMutate.isLoading) {
     return (
       <Layout title={`${post.title}`}>
@@ -26,7 +33,7 @@ const detailPage: FC<Props> = ({ post }) => {
   }
 
   if (deletePostMutate.isSuccess) {
-    router.push("/");
+    router.push("/MainPost");
 
     return (
       <Layout title={`${post.title}`}>
@@ -56,15 +63,15 @@ const detailPage: FC<Props> = ({ post }) => {
             onClick={() =>
               deletePostMutate.mutate({
                 id: post.id,
-                userId: "d710df2a-9bbc-44d9-a174-231f0c788a53",
+                userId,
               })
             }
-            className="relative left-10 top-1"
-            disabled={post.authorId !== "d710df2a-9bbc-44d9-a174-231f0c788a53"}
+            className="group relative left-10 top-1 cursor-pointer disabled:opacity-50"
+            disabled={post.authorId !== userId}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 rounded-full stroke-red-500"
+              className=" h-6 w-6 rounded-full stroke-red-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -79,7 +86,7 @@ const detailPage: FC<Props> = ({ post }) => {
           </button>
         </div>
 
-        <Link href="/">
+        <Link href="/MainPost">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
