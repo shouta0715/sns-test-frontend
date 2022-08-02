@@ -21,7 +21,7 @@ const detailPage: FC<Props> = ({ post }) => {
   const { userId, setUserId } = useStateContext();
 
   useEffect(() => {
-    if (userId === "") setUserId("f9607a9f-51dd-401a-b000-4b14b0867942");
+    if (userId === "") setUserId("c39c8e9a-79ef-487a-9d0b-963b5d6149df");
   }, []);
 
   if (deletePostMutate.isLoading) {
