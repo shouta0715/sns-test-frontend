@@ -95,7 +95,7 @@ export const RegisterAuth = () => {
           </div>
         </Link>
       </header>
-      <div className=" flex w-full max-w-[80%] flex-col space-y-8 rounded border border-blue-500 bg-white p-8 drop-shadow-md  md:w-1/2 md:max-w-none md:p-16">
+      <div className="mt-24 flex w-full max-w-[80%] flex-col space-y-8 rounded border border-blue-500 bg-white p-8 drop-shadow-md  md:w-1/2 md:max-w-none md:p-16">
         <p className="text-center font-Title text-4xl">Login to Continue</p>
         <form
           onSubmit={onSubmit}
